@@ -1,0 +1,9 @@
+http://localhost:3000/pokemons
+
+###
+POST http://localhost:3000/pokemons HTTP/1.1
+content-type: application/json
+
+
+###
+DELETE http://localhost:3000/pokemons/{{ id }}

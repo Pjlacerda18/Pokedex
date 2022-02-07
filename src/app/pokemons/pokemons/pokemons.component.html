@@ -1,0 +1,9 @@
+<h3>Bem vindo!</h3>
+<div class="input" type="input">
+    <label for="pokemon" class="control-label">Pokemons</label>
+    <select class="input-field" aria-label="Default select example">
+    <option *ngFor="let pokemon of pokemons " value="{{ pokemon.num}}" selected>
+      {{ pokemon.name }}
+    </option>
+  </select>
+</div>
