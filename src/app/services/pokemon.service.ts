@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pokemon } from '../../assets/dados/pokemon';
+import { Pokemon } from './pokemon';
 import { map, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({
