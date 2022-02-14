@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { distinctUntilChanged, filter, map, switchMap, take, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, switchMap, take, tap } from 'rxjs';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -27,12 +27,14 @@ pokeName = new FormControl();
      this.results$ = this.pokeField.valueChanges
    .pipe(
      map(value => value.trim()),
-     filter(value => value.length > 1),
+     filter(value => value.length > 2),
+     debounceTime(300),
      distinctUntilChanged(),
+     take((1)),
     //tap(value => this.total = value),
      switchMap(res => this.http.get(this.pokemonService.POKE_URL  +'pokemon?offset=0&limit=1200')
     ), tap((res: any) => this.total = res.count),
-     map(res => res.results)
+     map(res => res.results),
    )
   }
 
