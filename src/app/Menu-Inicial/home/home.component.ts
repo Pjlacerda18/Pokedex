@@ -17,7 +17,7 @@ usuario: Usuario = new Usuario;
   ngOnInit(): void {
   }
 
-
+//Falta a criação do AuthGuard para logar Somenete com o preenchimento do nome!
 openPokedex(){
  //this.navCtrl.push(SuaPokedexComponent, {}, {animate: true})
 this.router.navigate(['/sua-pokedex'])
