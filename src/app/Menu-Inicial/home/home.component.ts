@@ -20,7 +20,7 @@ usuario: Usuario = new Usuario;
 //Falta a criação do AuthGuard para logar Somenete com o preenchimento do nome!
 openPokedex(){
  //this.navCtrl.push(SuaPokedexComponent, {}, {animate: true})
-this.router.navigate(['/sua-pokedex'])
+this.router.navigate(['/pokemons'])
 }
 
 

@@ -12,7 +12,7 @@
             "name": "Venusaur",
             "variations": [{
                     "name": "Venusaur",
-                    "description": "Venusaur is a Grass/Poison type Pokémon introduced in Generation 1. It is known as the Seed Pokémon.\nVenusaur has a Mega Evolution, available from X & Y onwards.",
+                    "description": "Venusaur is a Grass/Poison type Pokémon introduced in Generation 1. It is known as the Seed Pokémon.Venusaur has a Mega Evolution, available from X & Y onwards.",
                     "image": "images/venusaur.jpg",
                     "types": [
                         "Grass",

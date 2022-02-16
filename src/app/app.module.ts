@@ -9,13 +9,17 @@ import { HomeComponent } from './Menu-Inicial/home/home.component';
 
 import { PokemonsComponent } from './pokemons/pokemons/pokemons.component'
 import { HttpClientModule } from '@angular/common/http';
+import { PokemonEscolhidoComponent } from './seu-pokemon/pokemon-escolhido/pokemon-escolhido.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
 
-    PokemonsComponent
+    PokemonsComponent,
+     PokemonEscolhidoComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,39 +1,44 @@
-<h3>Bem vindo!</h3>
-<div class="container file-field ">
-    <div class="file-field input-field">
-        <div class="row">
-            <!--Barra de pesquisa reativa, não está funcionando como planejado-->
-            <div class="col-md-9">
-                <input type="text" id="myInput" class="form-control" [formControl]="pokeField" placeholder="Digite o nome do Pokemon!" />
-                <button class="btn" (click)="listPokemons()">Pesquisar</button>
-            </div>
-            <div>
+<h3 style=" color:blue; text-align:center;">Bem vindo!</h3>
+<form>
+    <div class="container file-field " style="justify-content:center; text-align:center;">
+        <div class="file-field input-field">
+            <div class="row">
+                <!--Barra de pesquisa reativa, não está funcionando como planejado-->
+                <div class="col-md-9" [formGroup]="form">
+                    <input type="text" id="myInput" class="form-control" placeholder="Digite o nome do Pokemon!" formControlName="name" />
+                    <!--  <button class="btn" (click)="listPokemons()">Pesquisar</button> {{ this.pokemonList | json }} -->
 
+                </div>
+                <div>
+
+                </div>
             </div>
         </div>
+        <div class="search-list">
+            <h3>Pokemons Encontrados = {{ pokemonList.length }}</h3>
+            <table class="table" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--card de pokemons -->
+                    <tr *ngFor="let pokemon of pokemonList">
+                        <td [formControl]="pokeField"> {{ pokemon.name }} </td>
+                        <!--card de pokemons-->
+                        <div class="card-image">
+                            <img src="https://img.pokemondb.net/artwork/large/{{pokemon.name}}.jpg " width="120" height="85">
+                            <span class="card-title " style="color: green ">{{ pokemon.name }}</span>
+                            <div> <button (click)="listAbilities(pokemon.url)">Clique para saber mais</button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p></p>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="search-list">
-        <h3>Pokemons Encontrados. </h3>
-        <table class="table" id="myTable">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--card de pokemons -->
-                <tr *ngFor="let result of results$ | async">
-                    <td>{{ result.name }}</td>
-                    <div class="card-image" (click)="listAbilities(result.name)">
-                        <img src="https://img.pokemondb.net/artwork/large/{{result.name}}.jpg " width="100 " height="80 ">
-                        <span class="card-title " style="color: green ">{{ result.name }}</span>
-                        <p></p>
-                    </div>
-                    <div class="card-content ">
-                        <p></p>
-                    </div>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+</form>
