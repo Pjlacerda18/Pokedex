@@ -25,13 +25,14 @@
                 <tbody>
                     <!--card de pokemons -->
                     <tr *ngFor="let pokemon of pokemonList">
-                        <td [formControl]="pokeField"> {{ pokemon.name }} </td>
+                        <td> {{ pokemon.name }} </td>
                         <!--card de pokemons-->
                         <div class="card-image">
-                            <img src="https://img.pokemondb.net/artwork/large/{{pokemon.name}}.jpg " width="120" height="85">
+                            <img [src]="'https://img.pokemondb.net/artwork/large/'+pokemon.name +'.jpg'" width="120" height="85" />
                             <span class="card-title " style="color: green ">{{ pokemon.name }}</span>
-                            <div> <button (click)="listAbilities(pokemon.url)">Clique para saber mais</button>
+                            <div> <button (click)="listAbilities(pokemon) ">Clique para saber mais</button>
                             </div>
+
                         </div>
                         <div class="card-content">
                             <p></p>

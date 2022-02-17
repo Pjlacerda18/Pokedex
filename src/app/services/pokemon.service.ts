@@ -8,6 +8,7 @@ import { map, switchMap, tap } from 'rxjs';
 })
 export class PokemonService {
 
+
 //POKE_URL foi feita para testes fora do services no momento sendo usada!
 private readonly API = `https://pokeapi.co/api/v2/`
 POKE_URL='https://pokeapi.co/api/v2/'

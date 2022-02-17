@@ -7,11 +7,23 @@ import {
   distinctUntilChanged,
   filter,
   map,
+  pipe,
   take,
   tap,
 } from 'rxjs';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
+import { Pipe } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+
+@Pipe({ name: 'safeHtml' })
+export class SafeHtml {
+  constructor(private sanitizer: DomSanitizer) {}
+
+  transform(html: any) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(html);
+  }
+}
 
 @Component({
   selector: 'app-pokemons',
@@ -20,15 +32,17 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonsComponent implements OnInit {
   private _pokemonAPI: string = 'https://pokeapi.co/api/v2/';
-  public pokemonList: any[] =[];
+  public pokemonList: any[] = [];
   public form: FormGroup | any;
+  public forma: FormGroup | any;
 
   pokeField = new FormControl();
-  pokeName = new FormControl();
   results: any;
-  results$ = this.pokemonList
+  results$ = this.pokemonList;
   total: any;
   abilities: any;
+  _sanitizer: DomSanitizer | any;
+  poke: any;
 
   constructor(
     private pokemonService: PokemonService,
@@ -59,11 +73,11 @@ export class PokemonsComponent implements OnInit {
       name: new FormControl(null),
     });
 
-  this.form
+    this.form
       .get('name')
       .valueChanges.pipe(
         map((data: any) => data.trim()),
-        tap((data: any) => (data.length < 2 ? (this.pokemonList) : null)),
+        tap((data: any) => (data.length < 2 ? this.pokemonList : null)),
         filter((data: any) => data.length >= 2),
         debounceTime(900),
         distinctUntilChanged()
@@ -71,7 +85,7 @@ export class PokemonsComponent implements OnInit {
       .subscribe((data: any) => {
         this.getPokemonList(data);
       });
-      console.log(this.pokemonList)
+    console.log(this.pokemonList);
   }
 
   private getPokemonList(name: string, offset: number = 0): void {
@@ -90,7 +104,6 @@ export class PokemonsComponent implements OnInit {
         if (this.pokemonList.length == 0) {
           this.getPokemonList(name, ++offset);
         }
-
       });
   }
 
@@ -106,10 +119,16 @@ export class PokemonsComponent implements OnInit {
   }
 
   //Listar as habilidades do Pokemon, não sei o que está retornando não estou conseguindo fazer o bind!
-  listAbilities(name:any) {
+  listAbilities(pokemon: any) {
+    this.forma = this.formBuilder.group({
+      pokeName: new FormControl(),
+    });
+    let poke = pokemon.url.split('/')[6];
+    
+    console.log(pokemon.url);
 
-  this.router.navigate(['/pokemon-escolhido'])
+    console.log(this.poke);
+
+    this.router.navigate(['/pokemons/' + poke]);
   }
-
-
 }
