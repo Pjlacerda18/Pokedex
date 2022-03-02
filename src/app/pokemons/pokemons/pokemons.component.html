@@ -1,5 +1,7 @@
-<h3 style=" color:blue; text-align:center;">Bem vindo!</h3>
+<h3>Bem vindo!</h3>
+
 <form>
+
     <div class="container file-field " style="justify-content:center; text-align:center;">
         <div class="file-field input-field">
             <div class="row">
@@ -15,7 +17,7 @@
             </div>
         </div>
         <div class="search-list">
-            <h3>Pokemons Encontrados = {{ pokemonList.length }}</h3>
+            <h4>Pokemons Encontrados = {{ pokemonList.length }}</h4>
             <table class="table" id="myTable">
                 <thead>
                     <tr>
@@ -25,14 +27,13 @@
                 <tbody>
                     <!--card de pokemons -->
                     <tr *ngFor="let pokemon of pokemonList">
-                        <td> {{ pokemon.name }} </td>
+                        <td id="pokemon_name"> {{ pokemon.name }} </td>
                         <!--card de pokemons-->
                         <div class="card-image">
                             <img [src]="'https://img.pokemondb.net/artwork/large/'+pokemon.name +'.jpg'" width="120" height="85" />
-                            <span class="card-title " style="color: green ">{{ pokemon.name }}</span>
+                            <span class="card-title" id="pokemon_name">{{ pokemon.name }}</span>
                             <div> <button (click)="listAbilities(pokemon) ">Clique para saber mais</button>
                             </div>
-
                         </div>
                         <div class="card-content">
                             <p></p>

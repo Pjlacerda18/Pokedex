@@ -7,7 +7,6 @@ import {
   distinctUntilChanged,
   filter,
   map,
-  pipe,
   take,
   tap,
 } from 'rxjs';
@@ -85,7 +84,7 @@ export class PokemonsComponent implements OnInit {
       .subscribe((data: any) => {
         this.getPokemonList(data);
       });
-    console.log(this.pokemonList);
+
   }
 
   private getPokemonList(name: string, offset: number = 0): void {
@@ -124,11 +123,6 @@ export class PokemonsComponent implements OnInit {
       pokeName: new FormControl(),
     });
     let poke = pokemon.url.split('/')[6];
-    
-    console.log(pokemon.url);
-
-    console.log(this.poke);
-
     this.router.navigate(['/pokemons/' + poke]);
   }
 }

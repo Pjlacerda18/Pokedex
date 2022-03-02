@@ -3,3 +3,7 @@
 select {
     display: block;
 }
+
+html {
+    background-color: rgba(74, 151, 223, 0.521);
+}

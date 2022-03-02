@@ -1,0 +1,58 @@
+.tab {
+    background-color: rgb(29, 25, 255);
+    color: white;
+    font-weight: bold
+}
+
+#imagenPoke {
+    text-align: center
+}
+
+#test4 {
+    flex-basis: 100%;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    border: 1px rgb(50, 10, 194) solid;
+}
+
+#test5 {
+    border: 1px rgb(50, 10, 194) solid;
+}
+
+#descricao {
+    color: rgb(9, 180, 18);
+    text-align: left;
+}
+
+.card-title {
+    color: rgb(255, 0, 55);
+    text-transform: capitalize;
+    text-align: left;
+}
+
+#revealNome1 {
+    color: rgb(0, 0, 0)
+}
+
+#pokemon_name {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+#pokemon_hm_name {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#descricaoDiv {
+    border: 1px rgb(50, 10, 194) solid;
+}
+
+.card-reveal {
+    border: 1px rgb(50, 10, 194) solid;
+}
+
+#info {
+    font-size: 20px;
+}
