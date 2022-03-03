@@ -18,6 +18,8 @@
         </div>
         <div class="search-list">
             <h4>Pokemons Encontrados = {{ pokemonList.length }}</h4>
+
+            <div *ngIf="pokemonList.length == 0" class="error">Escreva um nome correspondente</div>
             <table class="table" id="myTable">
                 <thead>
                     <tr>

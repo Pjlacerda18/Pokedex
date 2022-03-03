@@ -22,3 +22,7 @@
     #pokemon_name {
         text-transform: capitalize;
     }
+
+    .error {
+        color: red;
+    }
