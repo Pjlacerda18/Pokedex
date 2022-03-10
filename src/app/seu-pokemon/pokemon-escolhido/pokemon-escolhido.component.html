@@ -11,7 +11,7 @@
         <span class="card-title" id="revealNome">{{ pokemon.name }}<i class="material-icons right"
         id="revealNome1">Fechar</i></span>
         <div class="card">
-            <div class="card-content">
+            <div *ngClass="">
                 <p id="info">
                     <strong id="pokemon_name">{{ pokemon.name }}</strong>
                 </p>
@@ -36,7 +36,7 @@
                         <div id="test4">
                             <strong>Tipo:</strong>
                             <div *ngFor="let tipo of pokemon.types">
-                                {{ tipo.type.name }}
+                                <p> <strong>{{ tipo.type.name }}</strong></p>
                             </div>
                         </div>
                     </div>

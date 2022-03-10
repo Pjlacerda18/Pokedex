@@ -36,6 +36,7 @@ export class PokemonEscolhidoComponent implements OnInit {
 
 
     this.pegarPokemon();
+
   }
 
 
@@ -59,6 +60,7 @@ export class PokemonEscolhidoComponent implements OnInit {
     this.movimentos = [];
     this.pokemon.moves.filter((move:any) => this.pokemonService.getHabilidade(move.move.url).subscribe((data:any)=> this.movimentos.push(data)))
 console.log(this.movimentos)
+console.log(this.pokemon.types)
   }
 
 

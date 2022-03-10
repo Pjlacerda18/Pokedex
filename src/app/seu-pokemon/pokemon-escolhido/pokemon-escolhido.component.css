@@ -10,10 +10,10 @@
 
 #test4 {
     flex-basis: 100%;
-    display: flex;
     text-align: center;
     flex-wrap: wrap;
     border: 1px rgb(50, 10, 194) solid;
+    text-transform: capitalize;
 }
 
 #test5 {
@@ -55,4 +55,8 @@
 
 #info {
     font-size: 20px;
+}
+
+.fire {
+    background-color: rgb(235, 13, 13)
 }
